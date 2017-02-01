@@ -13,6 +13,14 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
+/*
+ * Phaser Modules
+ */
+const phaserModule = helpers.root('node_modules/phaser-ce/build/custom/');
+const phaser = phaserModule + 'phaser-split.js';
+const pixi = phaserModule + 'pixi.js';
+const p2 = phaserModule + 'p2.js';
+
 /**
  * Webpack Constants
  */
@@ -51,7 +59,14 @@ module.exports = function (options) {
       /**
        * Make sure root is src
        */
-      modules: [path.resolve(__dirname, 'src'), 'node_modules']
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+
+      // Alias Phaser modules
+      alias: {
+        'phaser': phaser,
+        'pixi': pixi,
+        'p2': p2,
+      }
 
     },
 
@@ -66,6 +81,13 @@ module.exports = function (options) {
     module: {
 
       rules: [
+
+        /*
+         * Load exposed Phaser modules
+         */
+        { test: /pixi\.js/, loader: 'expose-loader?PIXI' },
+        { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
+        { test: /p2\.js/, loader: 'expose-loader?p2' },
 
         /**
          * Source map loader support for *.js files
