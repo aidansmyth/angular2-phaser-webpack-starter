@@ -1,14 +1,15 @@
 {
-  "name": "angular2-webpack-starter",
+  "name": "angular2-phaser-webpack-starter",
   "version": "5.4.1",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
+  "description": "angular2-webpack-starter with Phaser integration.",
   "keywords": [
     "angular2",
+    "phaser",
     "webpack",
     "typescript"
   ],
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+  "author": "Tristan W. Bonsor <twbtechnologies@gmail.com>",
+  "homepage": "https://github.com/twbtechnologies/angular2-phaser-webpack-starter",
   "license": "MIT",
   "scripts": {
     "build:aot:prod": "npm run clean:dist && npm run clean:aot && webpack --config config/webpack.prod.js  --progress --profile --bail",
@@ -84,6 +85,7 @@
     "http-server": "^0.9.0",
     "ie-shim": "^0.1.0",
     "jasmine-core": "^2.5.2",
+    "phaser-ce": "^2.7.3",
     "reflect-metadata": "^0.1.9",
     "rxjs": "~5.0.2",
     "zone.js": "~0.7.4"
@@ -152,10 +154,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/twbtechnologies/angular2-phaser-webpack-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/twbtechnologies/angular2-phaser-webpack-starter/issues"
   },
   "engines": {
     "node": ">= 4.2.1",
