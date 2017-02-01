@@ -1,15 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-
-import { DataResolver } from './app.resolver';
+import { GameComponent } from './pages/game';
+import { AboutComponent } from './pages/about';
+import { NoContentComponent } from './pages/no-content';
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
+  { path: '', component: GameComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
-  { path: '**',    component: NoContentComponent },
+  { path: 'help', loadChildren: './pages/+help#HelpModule'},
+  { path: '**', component: NoContentComponent },
 ];

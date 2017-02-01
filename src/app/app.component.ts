@@ -1,77 +1,26 @@
-/*
- * Angular 2 decorators and services
- */
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
-import { AppState } from './app.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppStateService } from './services/app-state';
+import { GameService, INITIAL_GAME_STATE } from './services/game';
 
-/*
- * App Component
- * Top Level Component
+/**
+ * Application root component.
  */
 @Component({
-  selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  template: `
-    <nav>
-      <a [routerLink]=" ['./'] " routerLinkActive="active">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] " routerLinkActive="active">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] " routerLinkActive="active">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] " routerLinkActive="active">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] " routerLinkActive="active">
-        About
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
-  `
+  selector: 'app',
+  styleUrls: ['./app.component.scss'],
+  template: `<main><router-outlet></router-outlet></main><div id="gameContainer"></div>`
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  /**
+   * Instantiate application component.
+   */
+  constructor(public appState: AppStateService, public game: GameService) { }
 
-  constructor(
-    public appState: AppState
-  ) {}
-
+  /**
+   * @inheritdoc
+   */
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
-
+    this.game.state.start(INITIAL_GAME_STATE);
+   }
 }
-
-/*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */
