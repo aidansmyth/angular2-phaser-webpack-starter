@@ -3,8 +3,8 @@ import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, inject, TestBed, ComponentFixture } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
 import { AboutComponent } from './about.component';
+import { AppStateService } from '../../services/app-state';
 
 describe('About', () => {
   let comp: AboutComponent;
@@ -15,7 +15,7 @@ describe('About', () => {
     TestBed.configureTestingModule({
       declarations: [AboutComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [AppState]
+      providers: [AppStateService]
     })
     .compileComponents(); // compile template and css
   }));

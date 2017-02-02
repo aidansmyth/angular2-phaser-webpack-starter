@@ -4,8 +4,9 @@ import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
 import { GameComponent } from './game.component';
+import { AppStateService } from '../../services/app-state';
+import { GameService, gameConfigProvider, gameStatesProvider } from '../../services/game';
 
 describe(`Game`, () => {
   let comp: GameComponent;
@@ -16,7 +17,7 @@ describe(`Game`, () => {
     TestBed.configureTestingModule({
       declarations: [GameComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [AppState]
+      providers: [AppStateService, GameService, gameConfigProvider, gameStatesProvider]
     })
     .compileComponents(); // compile template and css
   }));

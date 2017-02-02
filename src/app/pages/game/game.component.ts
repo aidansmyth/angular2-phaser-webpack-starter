@@ -21,7 +21,11 @@ export class GameComponent implements OnInit {
    * @inheritdoc
    */
   public ngOnInit() {
-    document.getElementById('gameContainer').style.visibility = 'visible';
-    document.getElementById('gameContainer').style.height = window.innerHeight + 'px';
+    const gameContainer = document.getElementById('gameContainer');
+
+    if (gameContainer) {
+      gameContainer.style.visibility = 'visible';
+      gameContainer.style.height = window.innerHeight + 'px';
+    }
   }
 }

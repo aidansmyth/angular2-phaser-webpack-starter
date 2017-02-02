@@ -14,6 +14,7 @@ export class GamePlayState extends Phaser.State {
   /**
    * @inheritdoc
    */
+  /* tslint:disable:no-empty */
   public preload() { }
 
   /**

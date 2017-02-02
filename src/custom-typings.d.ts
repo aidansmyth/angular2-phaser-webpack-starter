@@ -44,6 +44,7 @@ import * as _ from 'lodash'
  */
 
 // Phaser declarations.
+/* tslint:disable:no-reference */
 /// <reference path="../node_modules/phaser-ce/typescript/phaser.d.ts"/>
 /// <reference path="../node_modules/phaser-ce/typescript/pixi.d.ts"/>
 /// <reference path="../node_modules/phaser-ce/typescript/p2.d.ts"/>

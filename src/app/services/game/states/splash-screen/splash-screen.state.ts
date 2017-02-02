@@ -16,6 +16,7 @@ export class SplashScreenState extends Phaser.State {
   /**
    * @inheritdoc
    */
+  /* tslint:disable:no-empty */
   public preload() { }
 
   /**
@@ -32,6 +33,7 @@ export class SplashScreenState extends Phaser.State {
 
     document.body.onclick = () => {
       game.state.start(GAME_PLAY_STATE);
+      /* tslint:disable:no-empty */
       document.body.onclick = () => {};
     };
   }

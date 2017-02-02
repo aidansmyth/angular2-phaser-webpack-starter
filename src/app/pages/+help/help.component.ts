@@ -16,7 +16,11 @@ export class HelpComponent implements OnInit {
    * @inheritdoc
    */
   public ngOnInit() {
-    document.getElementById('gameContainer').style.visibility = 'hidden';
-    document.getElementById('gameContainer').style.height = '1px';
+    const gameContainer = document.getElementById('gameContainer');
+
+    if (gameContainer) {
+      gameContainer.style.visibility = 'hidden';
+      gameContainer.style.height = '1px';
+    }
   }
 }

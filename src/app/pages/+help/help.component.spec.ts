@@ -4,7 +4,7 @@ import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
+import { AppStateService } from '../../services/app-state';
 import { HelpComponent } from './help.component';
 
 describe(`Help`, () => {
@@ -16,7 +16,7 @@ describe(`Help`, () => {
     TestBed.configureTestingModule({
       declarations: [HelpComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [AppState]
+      providers: [AppStateService]
     })
     .compileComponents(); // compile template and css
   }));
