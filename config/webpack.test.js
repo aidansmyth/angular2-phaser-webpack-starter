@@ -158,14 +158,14 @@ module.exports = function (options) {
         },
 
         /*
-         * to string and sass loader support for *.scss files (from Angular components)
-         * Returns compiled css content as string
+         * Raw loader support for *.scss files
          *
+         * See: https://github.com/webpack/raw-loader
          */
         {
           test: /\.scss$/,
-          use: ['to-string-loader', 'css-loader', 'sass-loader'],
-          exclude: [helpers.root('src', 'styles')]
+          loader: ['raw-loader', 'sass-loader'],
+          exclude: [helpers.root('src/index.html')]
         },
 
         /**
